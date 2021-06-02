@@ -1,0 +1,12 @@
+<mat-nav-list *ngIf="exibition">
+
+    <mat-list-item mat-button *ngIf="ActiveOptions" [matMenuTriggerFor]="menu" >menu
+    <mat-menu #menu="matMenu" *ngFor="let option of menuOptition">
+      <button mat-menu-item>{{ option }}</button>
+    </mat-menu>
+  </mat-list-item>
+    <mat-list-item href="#">Link 2</mat-list-item>
+    <mat-list-item href="#">Link 3</mat-list-item>
+
+    
+  </mat-nav-list>

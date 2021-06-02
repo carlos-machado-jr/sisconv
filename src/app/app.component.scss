@@ -1,0 +1,36 @@
+
+a{
+    text-decoration: none;
+}
+li{
+    list-style: none;
+}
+.container{
+    display: grid;
+    grid-template-rows: 10vh 80vh 10vh;
+    width: 100%;
+   
+}
+
+
+header .logo{
+    background: blue;
+}
+
+header .menu{
+    background: brown;
+    
+    ul li{
+        display: inline-block;
+        
+    }
+}
+
+
+
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
