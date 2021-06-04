@@ -13,8 +13,8 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
 
-      <figure [ngClass]="{'margin-auto': (isHandset$ | async) }">
-        <img src="../../../assets/image/SisConV_2.png" alt="">
+      <figure [ngClass]="{'margin-auto': (isHandset$ | async) }" >
+        <a routerLink="/"><img src="../../../assets/image/SisConV_2.png" alt=""></a>
       </figure>
 
       <menu-list [exibition]="!(isHandset$ | async)" [menuItens]="menuList">
