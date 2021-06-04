@@ -1,12 +1,15 @@
 <mat-nav-list *ngIf="exibition">
 
-    <mat-list-item mat-button *ngIf="ActiveOptions" [matMenuTriggerFor]="menu" >menu
-    <mat-menu #menu="matMenu" *ngFor="let option of menuOptition">
-      <button mat-menu-item>{{ option }}</button>
-    </mat-menu>
-  </mat-list-item>
-    <mat-list-item href="#">Link 2</mat-list-item>
-    <mat-list-item href="#">Link 3</mat-list-item>
+  <mat-menu #appMenu="matMenu" >
+    <ng-template matMenuContent let-menu="name">
+      <div *ngFor="let option of menuOptions" ><button  mat-menu-item routerLink="{{option.href}}" *ngIf="menu == option.menuOptionName">{{  option.name }}</button></div>
+    </ng-template>
+  </mat-menu>
+    
+    <mat-list-item  mat-icon-button [matMenuTriggerFor]="appMenu"*ngFor="let menu of menuOptionsNames" [matMenuTriggerData]="menu">
+      <!-- <mat-icon>more_vert</mat-icon> --> {{ menu.name }}
+    </mat-list-item >
+    <mat-list-item *ngFor="let itens of menuItens" routerLink="{{itens.href}}" >{{ itens.name }}</mat-list-item>
 
     
   </mat-nav-list>
