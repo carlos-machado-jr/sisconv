@@ -7,9 +7,9 @@
   </mat-menu>
     
     <mat-list-item  mat-icon-button [matMenuTriggerFor]="appMenu"*ngFor="let menu of menuOptionsNames" [matMenuTriggerData]="menu">
-      <!-- <mat-icon>more_vert</mat-icon> --> {{ menu.name }}
+      {{ menu.name }}<mat-icon>arrow_drop_down</mat-icon> 
     </mat-list-item >
     <mat-list-item *ngFor="let itens of menuItens" routerLink="{{itens.href}}" >{{ itens.name }}</mat-list-item>
-
+    <ng-content></ng-content>
     
   </mat-nav-list>

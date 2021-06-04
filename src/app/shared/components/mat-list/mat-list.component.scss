@@ -1,5 +1,9 @@
 mat-nav-list{
     display: flex!important;
+    mat-list-item,
+    button{
+      color: white;
+    }
   }
 
   

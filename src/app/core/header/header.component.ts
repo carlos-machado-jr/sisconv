@@ -14,7 +14,9 @@ export class HeaderComponent {
     {name:'Listar carros', href:'/carros', menuOptionName: "Carros", menuOption: true },
     {name:'Editar carros', href:'/carros', menuOptionName: "Carros", menuOption: true },
     {name:'Listar proprietarios', href:'/proprietarios', menuOptionName:"Proprietarios", menuOption: true},
-    {name:'Editar proprietarios', href:'/proprietarios', menuOptionName:"Proprietarios", menuOption: true}
+    {name:'Editar proprietarios', href:'/proprietarios', menuOptionName:"Proprietarios", menuOption: true},
+    {name:'Configurações', href:'/proprietarios', menuOptionName:"Admin", menuOption: true},
+    {name:'Ajuda', href:'/proprietarios', menuOptionName:"Admin", menuOption: true}
   ];
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
