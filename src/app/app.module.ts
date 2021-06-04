@@ -14,12 +14,14 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatListModule } from '@angular/material/list';
 import { HeaderComponent } from './core/header/header.component';
 import { MatListComponent } from './shared/components/mat-list/mat-list.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    MatListComponent,
+    MatListComponent
   
   ],
   imports: [
@@ -38,7 +40,11 @@ import { MatListComponent } from './shared/components/mat-list/mat-list.componen
 
     LayoutModule,
 
-    MatListModule
+    MatListModule,
+
+    MatGridListModule,
+
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
