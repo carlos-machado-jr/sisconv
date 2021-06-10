@@ -13,9 +13,11 @@ import { ProprietarioService } from './services/proprietario.service';
 })
 export class ProprietariosComponent implements OnInit {
   data: Observable<any>;
-  columns: String[] = ['id', 'nome', 'nipCpf', 'email', 'setor', 'posto']
+  columns: any[] = ["id", "nome", "nipCpf", "email", "setor", "posto"]
   isLog: Subject<boolean>;
   proprietarios: Proprietarios[];
+  delete: boolean = true;
+  edit: boolean = true;
   private usuarios: Usuarios;
 
   constructor(

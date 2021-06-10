@@ -17,7 +17,7 @@ export class TableComponent  extends MatPaginatorIntl implements OnInit {
   @ViewChild(MatSort, {static: true}) sort: MatSort;
   
   // é necessário passar as colunas como parametro!
-  @Input() displayedColumns: String[];
+  @Input() displayedColumns: any[];
   // é necessário passar os dados como observable da requisição!
   @Input() data: Observable<any>;
   @Input() edit: boolean;
@@ -38,16 +38,15 @@ export class TableComponent  extends MatPaginatorIntl implements OnInit {
      }
 
   ngOnInit() {
+    
+    this.getDataSource();
     if(this.edit){
     this.displayedColumns.push('editar');
     }
     if(this.delete){
     this.displayedColumns.push('apagar');
     }
-   if(this.data != null){
-       this.getDataSource();
-       this.columnsIsNull();
-   }
+  
   
    
   }
@@ -56,9 +55,18 @@ export class TableComponent  extends MatPaginatorIntl implements OnInit {
     this.getId.next(id);
   }
   getDataSource(){
-    this.data.subscribe((data: any[]) => this.dataSource.data = data);
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    
+    this.data.subscribe(result => {
+
+      if(result != null){
+        this.dataSource.data = result
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+
+        this.columnsIsNull();
+
+    }
+    })
     
   }
   applyFilter(event: Event) {
