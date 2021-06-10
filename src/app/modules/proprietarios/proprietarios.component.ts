@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 import { Proprietarios } from 'src/app/shared/models/proprietarios';
 import { Usuarios } from 'src/app/shared/models/usuarios';
+import { StorageService } from 'src/app/shared/util/services/storage.service';
+import { ProprietarioService } from './services/proprietario.service';
 
 @Component({
   selector: 'app-proprietarios',
@@ -18,54 +20,55 @@ export class ProprietariosComponent implements OnInit {
 
   constructor(
     private route: Router,
-    // private storage: StorageService,
-    // private proprietarioService: ProprietarioService
+    private storage: StorageService,
+    private proprietarioService: ProprietarioService
     ) { }
 
   ngOnInit(): void {
-  //  this.isLog = this.proprietarioService.isTeste;
-  // //  this.data = this.getPermissions();
-  //  this.data = this.proprietarioService.findAllPro();
-  //  this.proprietarioService.findAllPro().subscribe(x => console.log(x))
+   this.isLog = this.proprietarioService.isTeste;
+  //  this.data = this.getPermissions();
+   this.data = this.proprietarioService.findAllPro();
+   this.proprietarioService.findAllPro().subscribe(x => console.log(x))
     
   }
   
   
-  // redirectUrl(event){
-  //   this.route.navigate([`proprietarios/${event}`]);
+  redirectUrl(event: any){
+    this.route.navigate([`proprietarios/${event}`]);
     
-  // }
+  }
 
-  // private getPermissions(){
-  //   this.usuarios = this.storage.getUser();
-  //   switch(this.usuarios.permissao){
-  //     case 'Supervisor':
-  //       return this.proprietarioService.findAllActivated();
-  //       break;
-  //     case 'Administrador':
-  //         return this.getAdmin();
-  //      break;
-  //     default:
-  //       break;
-  //   }
-  // }
-  // private getAdmin(): Observable<any> {
-  //   let rota = this.route.url.split('/')[2];
+  private getPermissions(): Observable<any> {
+    this.usuarios = this.storage.getUser();
+    switch(this.usuarios.permissao){
+      case 'Supervisor':
+        return this.proprietarioService.findAllActivated();
+        break;
+      case 'Administrador':
+          return this.getAdmin();
+       break;
+      default:
+        return this.getAdmin();
+        break;
+    }
+  }
+  private getAdmin(): Observable<any> {
+    let rota = this.route.url.split('/')[2];
     
-  //   switch (rota) {
-  //     case 'ativados':
-  //       return this.proprietarioService.findAllActivated();
-  //       break;
-  //     case 'desativados':
-  //       return this.proprietarioService.findAllDisabled();
-  //       break; 
-  //     default:
+    switch (rota) {
+      case 'ativados':
+        return this.proprietarioService.findAllActivated();
+        break;
+      case 'desativados':
+        return this.proprietarioService.findAllDisabled();
+        break; 
+      default:
         
-  //       return this.proprietarioService.findAll()
+        return this.proprietarioService.findAll()
          
         
-  //   }
+    }
 
 
-  // }
+  }
 }

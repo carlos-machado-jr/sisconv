@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Subject } from 'rxjs';
-import { AccountService } from '../../utils/services/account.service';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { AccountService } from '../../util/services/account.service';
 
 @Component({
   selector: 'spinner',
@@ -8,9 +8,8 @@ import { AccountService } from '../../utils/services/account.service';
   styleUrls: ['./spinner.component.css']
 })
 export class SpinnerComponent implements OnInit {
-  public isLoading: Subject<Boolean>;
+  public isLoading: Observable<boolean>;
   public color = "primary";
-  public mode = "indeterminate";
   public value = '';
 
   constructor(

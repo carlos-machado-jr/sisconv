@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
-import { MenuListModel } from 'src/app/shared/components/models/menuList.model';
+import { MenuListModel } from 'src/app/shared/models/menuListModel';
 
 @Component({
   selector: 'navigation',

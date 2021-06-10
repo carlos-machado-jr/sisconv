@@ -5,9 +5,19 @@ const routes: Routes = [
   
   { path: '', loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule) },
   
-  { path: 'proprietarios', loadChildren: () => import('./modules/proprietarios/proprietarios.module').then(m => m.ProprietariosModule) }
+  { path: 'proprietarios', loadChildren: () => import('./modules/proprietarios/proprietarios.module').then(m => m.ProprietariosModule) },
 
-
+  { path: 'login', loadChildren: () => import('./modules/login/login.module').then(m => m.LoginModule) },
+  
+  // canActivate:[AuthGuard], resolve: {usuario: LoaderGuard}
+  { path: 'home', loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule) },
+  
+  // canActivate:[AuthGuard]
+  { path: 'usuarios', loadChildren: () => import('./modules/usuarios/usuarios.module').then(m => m.UsuariosModule) },
+  
+  { path: 'veiculos', loadChildren: () => import('./modules/veiculos/veiculos.module').then(m => m.VeiculosModule) },
+  
+  { path: '', pathMatch: 'full', redirectTo: 'home'},
 ];
 
 @NgModule({

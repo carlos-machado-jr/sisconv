@@ -9,8 +9,8 @@ import { style } from '@angular/animations';
   styleUrls: ['./skeleton.component.css']
 })
 export class SkeletonComponent implements OnInit {
-  @Input() Cwidth;
-  @Input() Cheight;
+  @Input() Cwidth: any;
+  @Input() Cheight: any;
   @Input() circle: boolean;
 
   constructor() { }

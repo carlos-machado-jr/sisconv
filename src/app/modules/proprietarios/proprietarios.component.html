@@ -1,1 +1,10 @@
-<p>proprietarios works!</p>
+
+<app-table 
+[displayedColumns]= "columns"
+[data] = "data"
+[edit]="true"
+[delete]="true"
+(getId)="redirectUrl($event)"
+[loading]="isLog"
+
+></app-table>

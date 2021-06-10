@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AccountService } from 'src/app/shared/utils/services/account.service';
-import { Subject } from 'rxjs';
+import { Observable } from 'rxjs';
+import { AccountService } from 'src/app/shared/util/services/account.service';
 
 @Component({
   selector: 'navbar-skeleton',
@@ -8,7 +8,7 @@ import { Subject } from 'rxjs';
   styleUrls: ['./navbar-skeleton.component.css']
 })
 export class NavbarSkeletonComponent implements OnInit {
-  public isLoading: Subject<Boolean>;
+  public isLoading: Observable<Boolean>;
 
   constructor(private account: AccountService) { }
 
