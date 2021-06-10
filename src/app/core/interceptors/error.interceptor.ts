@@ -11,11 +11,12 @@ import {
   HttpErrorResponse
 } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
-import { AccountService } from 'src/app/shared/utils/services/account.service';
 import { ProprietarioService } from 'src/app/modules/proprietarios/services/proprietario.service';
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class ErrorInterceptor implements HttpInterceptor {
 
 

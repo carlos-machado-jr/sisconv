@@ -7,10 +7,12 @@ import {
   HTTP_INTERCEPTORS
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { StorageService } from 'src/app/shared/utils/services/storage.service';
 import { API_CONFIG } from '../config/api.config';
+import { StorageService } from 'src/app/shared/util/services/storage.service';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class HeadersInterceptor implements HttpInterceptor {
 
   constructor(private storage: StorageService) {}
@@ -22,7 +24,7 @@ export class HeadersInterceptor implements HttpInterceptor {
     if (requestToAPI){
       const authReq = request.clone({
         headers: request.headers
-        .set('Authorization', `Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTYyMjYzMTg2MH0.67c0EVxuLYNx5UVAhKJz8sP46xjnHDjCjewhQJd72oQE0sbylJ8O9y_S5lRrrNtB6A-QGDXc-PsPilyGSbUAFw`)
+        .set('Authorization', `Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTYyMzQxMTUwNH0.peIgjA-oyw9ZRIU4mLRQ3hfzNr8IwpZlcsqoW6FBP-qflTUN0J6_h4iQavuzPyzKOmS4FU5vjMTJf8byutxwUQ`)
         .append('Content-Type', 'application/json')
         .append( 'Access-Control-Allow-Origin','http://localhost:4200/*')
         .append('Access-Control-Allow-Methods','GET,POST')

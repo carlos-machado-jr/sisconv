@@ -15,7 +15,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { SkeletonModule } from 'src/app/shared/components/skeleton/skeleton.module';
 import { ProprietarioService } from './services/proprietario.service';
-import { ProprietariosGuard } from 'src/app/core/guards/proprietarios.guard';
+import { CoreModule } from 'src/app/core/core.module';
+import { StorageService } from 'src/app/shared/util/services/storage.service';
 
 
 @NgModule({
@@ -36,9 +37,10 @@ import { ProprietariosGuard } from 'src/app/core/guards/proprietarios.guard';
     MatSelectModule,
     MatIconModule,
     MatProgressBarModule,
-    SkeletonModule
+    SkeletonModule,
+    CoreModule
 
   ],
-  providers:[ProprietarioService, ProprietariosGuard]
+  providers:[ProprietarioService, StorageService]
 })
 export class ProprietariosModule { }

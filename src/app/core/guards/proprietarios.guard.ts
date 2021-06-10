@@ -40,7 +40,7 @@ export class ProprietariosGuard implements Resolve<any> {
             
             break;
           default:
-            return this.findById(next.params['id']);
+              return this.findById(next.params['id']);
             break;
       }
       

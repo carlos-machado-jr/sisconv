@@ -7,13 +7,15 @@ import {
   HTTP_INTERCEPTORS
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { AccountService } from 'src/app/shared/utils/services/account.service';
 import { ProprietarioService } from 'src/app/modules/proprietarios/services/proprietario.service';
 import { delay, finalize } from 'rxjs/operators';
-import { StorageService } from 'src/app/shared/utils/services/storage.service';
 import { LoginService } from 'src/app/modules/login/services/login.service';
+import { StorageService } from 'src/app/shared/util/services/storage.service';
+import { AccountService } from 'src/app/shared/util/services/account.service';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class LoadingInterceptor implements HttpInterceptor {
 
   constructor(
