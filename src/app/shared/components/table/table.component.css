@@ -1,3 +1,16 @@
+
+.search{
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+}
+mat-form-field{
+  width: 70%!important;
+}
+
 table {
     width: 100%;
   }
