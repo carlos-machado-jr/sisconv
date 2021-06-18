@@ -16,6 +16,9 @@ import { HeaderComponent } from './core/header/header.component';
 import { MatListComponent } from './shared/components/mat-list/mat-list.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
+import { AccountService } from './shared/util/services/account.service';
+import { AuthGuard } from './core/guards/auth.guard';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,7 @@ import { MatCardModule } from '@angular/material/card';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-
+    HttpClientModule,
     MatToolbarModule,
     MatIconModule,
     MatMenuModule,

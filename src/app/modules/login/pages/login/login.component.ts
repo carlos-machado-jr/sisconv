@@ -29,24 +29,24 @@ export class LoginComponent implements OnInit {
   
   ngOnInit() {
     this.createForm();
-    this.data = this.loginService.splashLoading;
-    console.log(this.loginService.splashLoading);
+    // this.data = this.loginService.splashLoading;
+    // console.log(this.loginService.splashLoading);
     
   }
   ngDoCheck(){
-    console.log(this.loginService.splashLoading);
+    // console.log(this.loginService.splashLoading);
 
   }
   authenticated(){
-    this.route.navigate(['/home'])
-    // this.authService.authenticate(this.formulario.value)
-    // .subscribe(
-    //   sucess => {
-        
-    //     this.route.navigate(['/home'])
-    //   },
-    //   erro => ''
-    // );
+    
+    this.authService.authenticate(this.formulario.value)
+    .subscribe(
+      sucess => {
+        console.log("sucess")
+        this.route.navigate(['/home'])
+      },
+      erro => ''
+    );
   }
 
   createForm(){

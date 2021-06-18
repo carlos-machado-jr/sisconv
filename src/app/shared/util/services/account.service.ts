@@ -30,12 +30,12 @@ export class AccountService {
   
 
   public getUserLoggedIn(){
-    return true;
-    // const token = this.storage.getAuthorizationToken();
-    // if(token != null && !this.jwt.isTokenExpired(token)){
-    //   return true
-    // }
-    // return false
+    
+    const token = this.storage.getAuthorizationToken();
+    if(token != null && !this.jwt.isTokenExpired(token)){
+      return true
+    }
+    return false
   }
 
   public showLoading() {

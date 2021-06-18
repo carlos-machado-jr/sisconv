@@ -18,19 +18,13 @@ export class HeadersInterceptor implements HttpInterceptor {
   constructor(private storage: StorageService) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    // let localUser = this.storage.getLocalUser();
+    let localUser = this.storage.getLocalUser();
     let N = API_CONFIG.baseurl.length;
     let requestToAPI = request.url.substring(0, N) == API_CONFIG.baseurl;
-    if (requestToAPI){
+    if (localUser && requestToAPI){
+      console.log("interceptor")
       const authReq = request.clone({
-        headers: request.headers
-        .set('Authorization', `Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTYyMzQxMTUwNH0.peIgjA-oyw9ZRIU4mLRQ3hfzNr8IwpZlcsqoW6FBP-qflTUN0J6_h4iQavuzPyzKOmS4FU5vjMTJf8byutxwUQ`)
-        .append('Content-Type', 'application/json')
-        .append( 'Access-Control-Allow-Origin','http://localhost:4200/*')
-        .append('Access-Control-Allow-Methods','GET,POST')
-        .append('Access-Control-Allow-Headers', '*')
-        .append( 'Access-Control-Max-Age', '86400')
-
+        headers: request.headers.set('Authorization', `Bearer ${localUser.token}`)
       });
       return next.handle(authReq);
     } else {
